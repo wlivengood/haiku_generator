@@ -1,8 +1,6 @@
 var fs = require('fs');
 var dict = fs.readFileSync('./cmudict.txt').toString();
 var dictBySyl = formatData(dict);
-// var dictHash = hashDict(dict);
-// var text = fs.readFileSync('./test.txt');
 
 function countSyllables(pronunciation) {
 	if (pronunciation)
@@ -59,25 +57,6 @@ function createHaiku(structure) {
 	console.log(haikuString);
 	return haikuString;
 }
-
-// function hashDict(dictionary) {
-// 	var lines = dictionary.toString().split("\n");
-// 	var hash = {};
-// 	lines.forEach(function(line) {
-// 		var pair = line.split("  ");
-// 		var syl = countSyllables(pair[1]);
-// 		if (!hash[pair[0]])
-// 			hash[pair[0]] = syl;
-// 	});
-// 	return hash;
-// }
-
-//function findHaiku(text) {
-//	text = text.toString().replace("\n", " ").split(" ");
-//	console.log(text);
-//}
-
-// findHaiku(text);
 
 module.exports = {
 	createHaiku: createHaiku,
